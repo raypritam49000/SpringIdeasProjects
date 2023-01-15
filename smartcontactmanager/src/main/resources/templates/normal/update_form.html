@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::logout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title >Document</title>
+</head>
+<body>
+<section>
+    <i onclick="toggleSidebar()"  class="fas fa-bars m-3"></i>
+    <div class="card mr-3 ml-3">
+        <div class="card-body">
+            <h1 class="text-center">Update Your Contacts</h1>
+            <div class="container-fluid mt-1">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+
+                        <form th:action="@{/user/process-update}" method="post" th:object="${contact}" enctype="multipart/form-data" class="mt-2">
+
+
+                            <!--Hidden TextField-->
+                            <div class="form-group">
+                                <input type="hidden" th:value="${contact.cid}" class="form-control"  name="cid" aria-describedby="emailHelp" placeholder="Enter Here">
+                            </div>
+
+                            <!--First Name-->
+                            <div class="form-group">
+                                <label for="cname">Enter Your Name</label>
+                                <input type="text" th:value="${contact.cname}" class="form-control" id="cname" name="cname" aria-describedby="emailHelp" placeholder="Enter Here" required>
+                            </div>
+
+                            <!--Second Name-->
+                            <div class="form-group">
+                                <label for="secondName">Enter Your NikeName</label>
+                                <input type="text" th:value="${contact.secondName}" class="form-control" id="secondName" name="secondName" aria-describedby="emailHelp" placeholder="Enter Here" required>
+                            </div>
+
+                            <!--Phone -->
+                            <div class="form-group">
+                                <label for="phone">Enter Your Phone Number</label>
+                                <input type="number" th:value="${contact.phone}" class="form-control" id="phone" name="phone"  aria-describedby="emailHelp" placeholder="Enter Here" required>
+                            </div>
+
+                            <!-- Email Address-->
+                            <div class="form-group">
+                                <label for="email">Enter Your Email</label>
+                                <input type="email" th:value="${contact.email}" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter Here" required>
+                            </div>
+
+                            <!--Work-->
+                            <div class="form-group">
+                                <label for="work">Enter Your Work</label>
+                                <input type="text" th:value="${contact.work}" class="form-control" id="work" name="work" placeholder="Enter Here" required>
+                            </div>
+
+                            <!--Description-->
+                            <div class="form-group mt-3">
+                                <textarea id="description" th:text="${contact.description}" name="description" placeholder="Enter Contact Description" rows="10" class="form-control"></textarea>
+                            </div>
+
+                            <!--Contact Image-->
+                            <div class="container text-center">
+                                <img class="img-fluid my_profile_picture" style="width: 250px;height: 250px" th:src="@{'/image/'+${contact.image}}" alt="">
+                            </div>
+
+                            <p class="text-secondary">Choose new profile pic</p>
+                            <div class="custom-file mt-2">
+                                <input type="file" name="profileImage">
+                            </div>
+
+                            <div class="container text-center">
+                                <button type="submit" class="btn btn-outline-primary">Save Contacts</button>
+                                <button type="reset" class="btn btn-outline-danger">Reset</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

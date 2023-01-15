@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+       <!-- bean definitions here -->
+       <bean class="com.spring.core.model.Student" name="student">
+           <property name="id" value="123"/>
+           <property name="name" value="Pritam Ray"/>
+           <property name="salary" value="500000.00"/>
+           <property name="phone">
+           <util:list>
+               <value>8699535682</value>
+               <value>7696708539</value>
+           </util:list>
+           </property>
+       </bean>
+
+</beans>

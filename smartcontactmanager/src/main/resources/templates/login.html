@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" th:replace="base::logout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<section>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-6 offset-md-3">
+
+                <div class="card">
+                    <div class="card-header text-center bg-primary text-white">
+                        <img style="width: 100px;" th:src="@{/image/login.png}"></img><br>
+                        <h3>Login</h3>
+                    </div>
+
+                    <div class="card-body">
+                        <form id="login-form" class="form" action="#"
+                              th:action="@{/dologin}"  method="post">
+
+                            <div th:if="${param.error}" class="alert alert-danger">
+                                Invalid username and password</div>
+
+                            <div th:if="${param.logout}" class="alert alert-success">You
+                                have been logged out</div>
+
+                            <div class="form-group">
+                                <label for="username">Your Username</label> <input type="text"
+                                                                                   name="username" class="form-control" id="username"
+                                                                                   aria-describedby="emailHelp" placeholder="Enter Here"
+                                                                                   required="required">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Your Password</label> <input type="password"
+                                                                                   name="password" class="form-control" id="password"
+                                                                                   aria-describedby="emailHelp" placeholder="Enter Here"
+                                                                                   required="required">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="submit" class="text-info">
+                                </label><br> <input type="submit" id="submit" name="submit" class="btn btn-info btn-block" value="Login Here">
+                            </div>
+
+                            <div class="mr-auto">
+                                <a href="/signup" class="btn btn-info btn-block">Register here</a>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
